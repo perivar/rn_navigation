@@ -45,6 +45,11 @@ export type RootStackParamList = {
   Home: undefined;
   Locations: undefined;
   MyRewards: undefined;
+
+  // crypto
+  CryptoHome: undefined;
+  CryptoDetail: { currency: any };
+  CryptoTransaction: { currency: any };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

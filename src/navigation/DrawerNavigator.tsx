@@ -9,7 +9,6 @@ import {
 import { NavigationContainerRef } from '@react-navigation/native';
 import * as React from 'react';
 import {
-  Image,
   Pressable,
   StyleSheet,
   Text,
@@ -17,6 +16,7 @@ import {
   View,
 } from 'react-native';
 
+import { COLORS } from '../constants';
 import {
   CustomDrawerParamList,
   CustomDrawerScreenProps,
@@ -75,7 +75,7 @@ const DrawerNavigator = ({ nav }: NavProp) => {
         navigation,
       }: DrawerScreenProps<CustomDrawerParamList>) => ({
         headerStyle: {
-          backgroundColor: '#551E18',
+          backgroundColor: COLORS.secondary,
           height: 50,
         },
         headerLeft: () => (
@@ -92,9 +92,10 @@ const DrawerNavigator = ({ nav }: NavProp) => {
         component={BottomTabNavigator}
         options={({ navigation }: CustomDrawerScreenProps<'HomeTab'>) => ({
           title: 'Home',
-          headerTitle: () => (
-            <Image source={require('../assets/hotel_logo.jpg')} />
-          ),
+          headerTintColor: COLORS.white,
+          // headerTitle: () => (
+          //   <Image source={require('../../assets/hotel_logo.jpg')} />
+          // ),
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
   },
   drawerLabelFocused: {
     fontSize: 14,
-    color: '#551E18',
+    color: COLORS.white,
     fontWeight: '500',
   },
   drawerItem: {
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   drawerItemFocused: {
-    backgroundColor: '#ba9490',
+    backgroundColor: COLORS.secondary,
   },
 });
 

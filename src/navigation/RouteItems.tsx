@@ -1,6 +1,8 @@
 import { FontAwesome } from '@expo/vector-icons';
 import * as React from 'react';
 
+import { COLORS } from '../constants';
+
 export enum screens {
   HomeTab = 'HomeTab',
   HomeStack = 'HomeStack',
@@ -23,7 +25,11 @@ export const routes = [
     showInTab: false,
     showInDrawer: false,
     icon: (focused: boolean) => (
-      <FontAwesome name="home" size={30} color={focused ? '#851E18' : '#000'} />
+      <FontAwesome
+        name="home"
+        size={30}
+        color={focused ? COLORS.secondary : '#000'}
+      />
     ),
   },
   {
@@ -33,7 +39,11 @@ export const routes = [
     showInTab: true,
     showInDrawer: true,
     icon: (focused: boolean) => (
-      <FontAwesome name="home" size={30} color={focused ? '#851E18' : '#000'} />
+      <FontAwesome
+        name="home"
+        size={30}
+        color={focused ? COLORS.secondary : '#000'}
+      />
     ),
   },
   {
@@ -43,7 +53,11 @@ export const routes = [
     showInTab: true,
     showInDrawer: false,
     icon: (focused: boolean) => (
-      <FontAwesome name="home" size={30} color={focused ? '#851E18' : '#000'} />
+      <FontAwesome
+        name="home"
+        size={30}
+        color={focused ? COLORS.secondary : '#000'}
+      />
     ),
   },
 
@@ -54,7 +68,11 @@ export const routes = [
     showInTab: true,
     showInDrawer: false,
     icon: (focused: boolean) => (
-      <FontAwesome name="bed" size={30} color={focused ? '#851E18' : '#000'} />
+      <FontAwesome
+        name="bed"
+        size={30}
+        color={focused ? COLORS.secondary : '#000'}
+      />
     ),
   },
 
@@ -65,7 +83,11 @@ export const routes = [
     showInTab: true,
     showInDrawer: false,
     icon: (focused: boolean) => (
-      <FontAwesome name="bed" size={30} color={focused ? '#851E18' : '#000'} />
+      <FontAwesome
+        name="bed"
+        size={30}
+        color={focused ? COLORS.secondary : '#000'}
+      />
     ),
   },
 
@@ -79,7 +101,7 @@ export const routes = [
       <FontAwesome
         name="phone"
         size={30}
-        color={focused ? '#851E18' : '#000'}
+        color={focused ? COLORS.secondary : '#000'}
       />
     ),
   },
@@ -93,7 +115,7 @@ export const routes = [
       <FontAwesome
         name="phone"
         size={30}
-        color={focused ? '#851E18' : '#000'}
+        color={focused ? COLORS.secondary : '#000'}
       />
     ),
   },
@@ -105,7 +127,11 @@ export const routes = [
     showInTab: false,
     showInDrawer: true,
     icon: (focused: boolean) => (
-      <FontAwesome name="star" size={30} color={focused ? '#851E18' : '#000'} />
+      <FontAwesome
+        name="star"
+        size={30}
+        color={focused ? COLORS.secondary : '#000'}
+      />
     ),
   },
   {
@@ -115,7 +141,11 @@ export const routes = [
     showInTab: false,
     showInDrawer: false,
     icon: (focused: boolean) => (
-      <FontAwesome name="star" size={30} color={focused ? '#851E18' : '#000'} />
+      <FontAwesome
+        name="star"
+        size={30}
+        color={focused ? COLORS.secondary : '#000'}
+      />
     ),
   },
 
@@ -129,7 +159,7 @@ export const routes = [
       <FontAwesome
         name="map-marker"
         size={30}
-        color={focused ? '#851E18' : '#000'}
+        color={focused ? COLORS.secondary : '#000'}
       />
     ),
   },
@@ -143,7 +173,7 @@ export const routes = [
       <FontAwesome
         name="map-marker"
         size={30}
-        color={focused ? '#851E18' : '#000'}
+        color={focused ? COLORS.secondary : '#000'}
       />
     ),
   },
