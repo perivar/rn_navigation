@@ -1,3 +1,4 @@
+import { FontAwesome } from '@expo/vector-icons';
 import React from 'react';
 import {
   FlatList,
@@ -13,9 +14,9 @@ import {
 
 import { PriceAlert, TransactionHistory } from '../components';
 import { COLORS, dummyData, FONTS, icons, images, SIZES } from '../constants';
-import { RootStackScreenProps } from '../types';
+import { CustomDrawerScreenProps } from '../types';
 
-const CryptoHome = ({ navigation }: RootStackScreenProps<'CryptoHome'>) => {
+const CryptoHome = ({ navigation }: CustomDrawerScreenProps<'HomeTab'>) => {
   const [trending, setTrending] = React.useState(dummyData.trendingCurrencies);
 
   const [transactionHistory, setTransactionHistory] = React.useState(
@@ -32,6 +33,7 @@ const CryptoHome = ({ navigation }: RootStackScreenProps<'CryptoHome'>) => {
   }, []);
 
   function renderHeader() {
+    // render each trending item
     const renderItem = ({ item, index }: any) => (
       <TouchableOpacity
         style={{
@@ -120,23 +122,37 @@ const CryptoHome = ({ navigation }: RootStackScreenProps<'CryptoHome'>) => {
           {/* Header Bar section */}
           <View
             style={{
-              marginTop: SIZES.padding * 2,
-              width: '100%',
-              alignItems: 'flex-end',
+              marginTop: SIZES.padding,
               paddingHorizontal: SIZES.padding,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
             }}>
             <TouchableOpacity
               style={{
-                width: 35,
-                height: 35,
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
                 alignItems: 'center',
-                justifyContent: 'center',
+              }}
+              onPress={() => navigation.toggleDrawer()}>
+              <FontAwesome name="bars" size={20} color="#fff" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                alignItems: 'center',
               }}
               onPress={() => console.log('Notification on pressed')}>
               <Image
                 source={icons.notification_white}
                 resizeMode="contain"
-                style={{ flex: 1 }}
+                style={{
+                  width: 30,
+                  height: 30,
+                }}
               />
             </TouchableOpacity>
           </View>
@@ -271,6 +287,9 @@ const CryptoHome = ({ navigation }: RootStackScreenProps<'CryptoHome'>) => {
 };
 
 const styles = StyleSheet.create({
+  headerLeft: {
+    marginLeft: 15,
+  },
   shadow: {
     shadowColor: '#000',
     shadowOffset: {

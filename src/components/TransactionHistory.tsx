@@ -20,6 +20,7 @@ const TransactionHistory = ({
   customContainerStyle,
   history,
 }: TransactionHistoryProps) => {
+  // each transaction
   const renderItem = ({ item }: any) => (
     <TouchableOpacity
       style={{

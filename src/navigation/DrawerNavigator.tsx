@@ -22,7 +22,7 @@ import {
   CustomDrawerScreenProps,
   RootStackParamList,
 } from '../types';
-import BottomTabNavigator from './BottomTabNavigator';
+import CryptoBottomTabNavigator from './CryptoBottomTabNavigator';
 import { routes, screens } from './RouteItems';
 
 const Drawer = createDrawerNavigator<CustomDrawerParamList>();
@@ -74,6 +74,7 @@ const DrawerNavigator = ({ nav }: NavProp) => {
       screenOptions={({
         navigation,
       }: DrawerScreenProps<CustomDrawerParamList>) => ({
+        headerShown: false,
         headerStyle: {
           backgroundColor: COLORS.secondary,
           height: 50,
@@ -89,7 +90,7 @@ const DrawerNavigator = ({ nav }: NavProp) => {
       drawerContent={props => <CustomDrawerContent {...props} nav={nav} />}>
       <Drawer.Screen
         name={screens.HomeTab}
-        component={BottomTabNavigator}
+        component={CryptoBottomTabNavigator}
         options={({ navigation }: CustomDrawerScreenProps<'HomeTab'>) => ({
           title: 'Home',
           headerTintColor: COLORS.white,

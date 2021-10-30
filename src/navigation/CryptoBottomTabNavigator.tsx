@@ -19,7 +19,6 @@ const TabBarCustomButton = ({ children, onPress }: BottomTabBarButtonProps) => {
         top: -30,
         justifyContent: 'center',
         alignItems: 'center',
-        // ...styles.shadow,
       }}
       onPress={onPress}>
       <LinearGradient
