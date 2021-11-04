@@ -12,9 +12,16 @@ import {
   View,
 } from 'react-native';
 
-import { PriceAlert, TransactionHistory } from '../components';
-import { COLORS, dummyData, FONTS, icons, images, SIZES } from '../constants';
-import { CustomDrawerScreenProps } from '../types';
+import { PriceAlert, TransactionHistory } from '../../components';
+import {
+  COLORS,
+  dummyData,
+  FONTS,
+  icons,
+  images,
+  SIZES,
+} from '../../constants/crypto';
+import { CustomDrawerScreenProps } from '../../types';
 
 const CryptoHome = ({ navigation }: CustomDrawerScreenProps<'HomeTab'>) => {
   const [trending, setTrending] = React.useState(dummyData.trendingCurrencies);

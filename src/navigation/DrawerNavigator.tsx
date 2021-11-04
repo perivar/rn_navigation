@@ -4,6 +4,7 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
   DrawerItem,
+  DrawerItemList,
   DrawerScreenProps,
 } from '@react-navigation/drawer';
 import { NavigationContainerRef } from '@react-navigation/native';
@@ -16,12 +17,15 @@ import {
   View,
 } from 'react-native';
 
-import { COLORS } from '../constants';
+import { COLORS } from '../constants/crypto';
+import { AppChooserContext } from '../context/appChooserContext';
 import {
   CustomDrawerParamList,
   CustomDrawerScreenProps,
   RootStackParamList,
 } from '../types';
+import BookStoreBottomTabNavigator from './BookStoreBottomTabNavigator';
+import BottomTabNavigator from './BottomTabNavigator';
 import CryptoBottomTabNavigator from './CryptoBottomTabNavigator';
 import { routes, screens } from './RouteItems';
 
@@ -34,47 +38,76 @@ type NavProp = {
 type DrawerContentProps = DrawerContentComponentProps & NavProp;
 
 const CustomDrawerContent = (props: DrawerContentProps) => {
+  const { theme, setTheme } = React.useContext(AppChooserContext);
   const currentRouteName = props.nav()?.getCurrentRoute()?.name;
-  console.log(currentRouteName);
+  console.log('route: ' + currentRouteName);
   return (
     <DrawerContentScrollView {...props}>
-      {routes
-        .filter(route => route.showInDrawer)
-        .map(route => {
-          const focusedRoute = routes.find(r => r.name === currentRouteName);
-          const focused = focusedRoute
-            ? route.name === focusedRoute?.focusedRoute
-            : route.name === screens.HomeStack;
-          return (
-            <DrawerItem
-              key={route.name}
-              label={() => (
-                <Text
-                  style={
-                    focused ? styles.drawerLabelFocused : styles.drawerLabel
-                  }>
-                  {route.title}
-                </Text>
-              )}
-              onPress={() => props.navigation.navigate(route.name)}
-              style={[
-                styles.drawerItem,
-                focused ? styles.drawerItemFocused : null,
-              ]}
-            />
-          );
-        })}
+      {theme === 'original' &&
+        routes
+          .filter(route => route.showInDrawer)
+          .map(route => {
+            const focusedRoute = routes.find(r => r.name === currentRouteName);
+            const focused = focusedRoute
+              ? route.name === focusedRoute?.focusedRoute
+              : route.name === screens.HomeStack;
+            return (
+              <DrawerItem
+                key={route.name}
+                label={() => (
+                  <Text
+                    style={
+                      focused ? styles.drawerLabelFocused : styles.drawerLabel
+                    }>
+                    {route.title}
+                  </Text>
+                )}
+                onPress={() => props.navigation.navigate(route.name)}
+                style={[
+                  styles.drawerItem,
+                  focused ? styles.drawerItemFocused : null,
+                ]}
+              />
+            );
+          })}
+      {theme !== 'original' && (
+        <>
+          <DrawerItemList {...props} />
+          <DrawerItem
+            label="Original"
+            onPress={() => {
+              setTheme('original');
+              props.navigation.closeDrawer();
+            }}
+          />
+        </>
+      )}
+      <DrawerItem
+        label="Crypto"
+        onPress={() => {
+          setTheme('crypto');
+          props.navigation.closeDrawer();
+        }}
+      />
+      <DrawerItem
+        label="Book Store"
+        onPress={() => {
+          setTheme('bookstore');
+          props.navigation.closeDrawer();
+        }}
+      />
     </DrawerContentScrollView>
   );
 };
 
 const DrawerNavigator = ({ nav }: NavProp) => {
+  const { theme, setTheme } = React.useContext(AppChooserContext);
   return (
     <Drawer.Navigator
       screenOptions={({
         navigation,
       }: DrawerScreenProps<CustomDrawerParamList>) => ({
-        headerShown: false,
+        headerShown: theme === 'original' ? true : false,
         headerStyle: {
           backgroundColor: COLORS.secondary,
           height: 50,
@@ -90,7 +123,13 @@ const DrawerNavigator = ({ nav }: NavProp) => {
       drawerContent={props => <CustomDrawerContent {...props} nav={nav} />}>
       <Drawer.Screen
         name={screens.HomeTab}
-        component={CryptoBottomTabNavigator}
+        component={
+          theme === 'bookstore'
+            ? BookStoreBottomTabNavigator
+            : theme === 'crypto'
+            ? CryptoBottomTabNavigator
+            : BottomTabNavigator
+        }
         options={({ navigation }: CustomDrawerScreenProps<'HomeTab'>) => ({
           title: 'Home',
           headerTintColor: COLORS.white,

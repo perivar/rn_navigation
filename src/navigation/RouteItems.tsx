@@ -1,7 +1,7 @@
 import { FontAwesome } from '@expo/vector-icons';
 import * as React from 'react';
 
-import { COLORS } from '../constants';
+import { COLORS } from '../constants/crypto';
 
 export enum screens {
   HomeTab = 'HomeTab',

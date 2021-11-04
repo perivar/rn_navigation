@@ -2,17 +2,25 @@ import { Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export const COLORS = {
-  primary: '#7F5DF0', // Light purple
-  secondary: '#5D2DFD', // Dark purple
+  // base colors
+  primary: '#F96D41',
+  secondary: '#25282F',
 
-  white: '#fff',
-  black: '#000000',
-  green: '#37E39F',
-  red: '#ff0000',
-
-  gray: '#6A6A6A',
-  lightGray: '#dbdbdb',
-  lightGray1: '#f5f6fa',
+  // colors
+  black: '#1E1B26',
+  white: '#FFFFFF',
+  lightGray: '#64676D',
+  lightGray2: '#EFEFF0',
+  lightGray3: '#D4D5D6',
+  lightGray4: '#7D7E84',
+  gray: '#2D3038',
+  gray1: '#282C35',
+  darkRed: '#31262F',
+  lightRed: '#C5505E',
+  darkBlue: '#22273B',
+  lightBlue: '#424BAF',
+  darkGreen: '#213432',
+  lightGreen: '#31Ad66',
 };
 
 export const SIZES = {
@@ -21,23 +29,30 @@ export const SIZES = {
   font: 14,
   radius: 12,
   padding: 24,
+  padding2: 36,
 
   // font sizes
+  largeTitle: 50,
   h1: 30,
   h2: 22,
   h3: 16,
   h4: 14,
   body1: 30,
-  body2: 22,
+  body2: 20,
   body3: 16,
   body4: 14,
-  body5: 12,
 
   // app dimensions
   width,
   height,
 };
+
 export const FONTS = {
+  largeTitle: {
+    fontFamily: 'Roboto-regular',
+    fontSize: SIZES.largeTitle,
+    lineHeight: 55,
+  },
   h1: { fontFamily: 'Roboto-Black', fontSize: SIZES.h1, lineHeight: 36 },
   h2: { fontFamily: 'Roboto-Bold', fontSize: SIZES.h2, lineHeight: 30 },
   h3: { fontFamily: 'Roboto-Bold', fontSize: SIZES.h3, lineHeight: 22 },
@@ -60,11 +75,6 @@ export const FONTS = {
   body4: {
     fontFamily: 'Roboto-Regular',
     fontSize: SIZES.body4,
-    lineHeight: 22,
-  },
-  body5: {
-    fontFamily: 'Roboto-Regular',
-    fontSize: SIZES.body5,
     lineHeight: 22,
   },
 };

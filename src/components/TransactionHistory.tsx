@@ -9,7 +9,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { COLORS, FONTS, icons, SIZES } from '../constants';
+import { COLORS, FONTS, icons, SIZES } from '../constants/crypto';
 
 interface TransactionHistoryProps {
   customContainerStyle: StyleProp<ViewStyle>;

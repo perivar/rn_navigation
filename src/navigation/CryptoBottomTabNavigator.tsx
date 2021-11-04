@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
-import { COLORS, FONTS, icons } from '../constants';
+import { COLORS, FONTS, icons } from '../constants/crypto';
 import { CryptoHome } from '../screens';
 import CryptoStackNavigator from './stack-navigators/CryptoStackNavigator';
 

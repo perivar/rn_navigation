@@ -6,9 +6,9 @@ import {
   HeaderBar,
   TextButton,
   TransactionHistory,
-} from '../components';
-import { COLORS, FONTS, SIZES } from '../constants';
-import { RootStackScreenProps } from '../types';
+} from '../../components';
+import { COLORS, FONTS, SIZES } from '../../constants/crypto';
+import { RootStackScreenProps } from '../../types';
 
 const CryptoTransaction = ({
   route,

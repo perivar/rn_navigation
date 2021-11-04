@@ -1,9 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 
-import { CryptoDetail } from '../../screens';
-import CryptoHome from '../../screens/CryptoHome';
-import CryptoTransaction from '../../screens/CryptoTransaction';
+import { CryptoDetail, CryptoHome, CryptoTransaction } from '../../screens';
 import { RootStackParamList } from '../../types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

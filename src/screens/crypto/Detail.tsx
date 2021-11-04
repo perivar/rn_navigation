@@ -20,10 +20,10 @@ import {
   HeaderBar,
   PriceAlert,
   TextButton,
-} from '../components';
-import { COLORS, dummyData, FONTS, icons, SIZES } from '../constants';
-import { VictoryCustomTheme } from '../styles';
-import { RootStackScreenProps } from '../types';
+} from '../../components';
+import { COLORS, dummyData, FONTS, icons, SIZES } from '../../constants/crypto';
+import { VictoryCustomTheme } from '../../styles';
+import { RootStackScreenProps } from '../../types';
 
 const CryptoDetail = ({
   route,

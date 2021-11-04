@@ -50,6 +50,10 @@ export type RootStackParamList = {
   CryptoHome: undefined;
   CryptoDetail: { currency: any };
   CryptoTransaction: { currency: any };
+
+  // bookstore
+  BookHome: undefined;
+  BookDetail: { book: any };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

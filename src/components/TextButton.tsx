@@ -8,7 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { COLORS, FONTS, SIZES } from '../constants';
+import { COLORS, FONTS, SIZES } from '../constants/crypto';
 
 interface TextButtonProps {
   label: string;
